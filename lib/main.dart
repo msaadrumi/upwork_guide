@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:docx_file_viewer/docx_file_viewer.dart';
-import 'package:dynamic_color/dynamic_color.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,22 +13,21 @@ class DocxViewerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DynamicColorBuilder(
-      builder: (lightDynamic, darkDynamic) {
-        final light = lightDynamic ??
-            ColorScheme.fromSeed(seedColor: const Color(0xFF2d8c3c));
-        final dark = darkDynamic ??
-            ColorScheme.fromSeed(
-                seedColor: const Color(0xFF2d8c3c),
-                brightness: Brightness.dark);
-        return MaterialApp(
-          title: 'upwork guide',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(colorScheme: light, useMaterial3: true),
-          darkTheme: ThemeData(colorScheme: dark, useMaterial3: true),
-          home: const DocxViewerScreen(),
-        );
-      },
+    return MaterialApp(
+      title: 'upwork guide',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2d8c3c)),
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF2d8c3c),
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
+      home: const DocxViewerScreen(),
     );
   }
 }

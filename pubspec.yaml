@@ -32,7 +32,6 @@ dependencies:
     sdk: flutter
 
   docx_file_viewer: ^1.0.1
-  dynamic_color: ^1.7.0
 
 dev_dependencies:
   flutter_test:
